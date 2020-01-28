@@ -1,0 +1,83 @@
+package seleniumCase;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlertPage {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.chrome.driver", "E:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://www.leafground.com/");
+		
+		WebElement alertBox=driver.findElement(By. xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[9]/a/img"));
+		alertBox.click();
+		
+		Thread.sleep(1000);
+
+		WebElement displayBox1=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[1]/div/div/button"));
+		displayBox1.click();
+		
+		Thread.sleep(1000);
+		
+		Alert alert=driver.switchTo().alert();
+		alert.accept();
+		
+		Thread.sleep(1000);
+		
+		WebElement confirmBox=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[2]/div/div/button"));
+		confirmBox.click();
+		
+		Thread.sleep(1000);
+		
+		Alert alert1=driver.switchTo().alert();
+		alert1.dismiss();
+		
+		Thread.sleep(1000);
+		
+	     WebElement promptBox=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[3]/div/div/button"));
+	     promptBox.click();
+	     
+	     Thread.sleep(1000);
+	     
+	     Alert alert2=driver.switchTo().alert();
+	     alert2.sendKeys("TestLeaf");
+	     alert2.accept();
+	     
+	     Thread.sleep(1000);
+	     
+	     WebElement lineBreaker=driver.findElement(By.xpath("//*[@id=\'contentblock\']/section/div[4]/div/div/button"));
+	     lineBreaker.click();
+	     
+	     Thread.sleep(1000);
+	     
+	     Alert alert3=driver.switchTo().alert();
+	     alert3.accept();
+	     
+	     Thread.sleep(1000);
+	     
+	    // driver.get("http://www.leafground.com/");
+	     
+	     WebElement endAlert=driver.findElement(By.id("btn"));
+	     endAlert.click();
+	     
+	     Thread.sleep(1000);
+	     
+	     Alert alert4=driver.switchTo().alert();
+	     alert4.accept();
+	     WebElement alertButton=driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div"));
+	     alertButton.click();
+	     
+	     
+	     Thread.sleep(1000);
+	     
+	     driver.get("http://www.leafground.com/");
+	}
+
+	
+}
