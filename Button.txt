@@ -1,0 +1,43 @@
+package seleniumCase;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Button {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "E:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://www.leafground.com/");
+		
+        WebElement button=driver.findElement(By.xpath("//*[@id=\'post-153\']/div[2]/div/ul/li[2]/a/img"));
+        button.click();
+        
+        WebElement possition=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[2]/div/div/label"));
+          int xValue=possition.getLocation().getX();
+        System.out.println(xValue);
+          int yValue=possition.getLocation().getY();
+        System.out.println(yValue);
+
+        WebElement btnColor=driver.findElement(By.id("color")); 
+        
+        String color=btnColor.getCssValue("background-color");
+        System.out.println(color);
+        
+        WebElement btnSize=driver.findElement(By.id("size"));
+          int size=btnSize.getSize().getHeight();
+        System.out.println(size);
+          int sizeWidth=btnSize.getSize().getWidth();
+          System.out.println(sizeWidth);
+          
+          WebElement homePage=driver.findElement(By.id("home"));
+          homePage.click();
+        
+       
+	}
+
+}
